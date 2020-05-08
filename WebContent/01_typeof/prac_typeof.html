@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트에서 사용되는 데이터 타입에 대해서 알아봅니다 (연습)</title>
+
+<style type="text/css">
+
+	div#container {
+		border: solid 1px gray;
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%;
+	}
+	
+	table, tr, th, td {
+		border: solid 1px gray;
+		border-collapse: collapse; /* 표에 테두리 주기 */
+	}
+	
+	td {
+		width: 200px;
+		height: 50px;
+		text-align: center; /* 글자 가로 가운데 정렬 */
+	}
+	
+	div#div2, div#div3  {
+		margin: 20px 0;
+	}
+	
+	span#sum, span#no3, span#su3 {
+		olor: red;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function() {
+		// 1줄 주석문
+		/*  여러줄
+			주석문 */
+		
+		// window.onload = function() {} 은 문서가 모두 로드되어진 다음에 실행하게 해주는 것이다.
+		
+		// alert("alert는 주로 메시지를 띄우는 대화상자 입니다. ");
+		var var1 = document.getElementById("val1").innerText;
+		// alert(val1);
+		
+		// alert(typeof(val1)); // typeof(val1)은 변수의 데이터타입을 알려주는 것이다.
+		// ==> object
+		
+		document.getElementById("typeval1").innerHTML = typeof(val1);
+		// document.getElementById("typeval1") 내용에 typeof(val1) 값을 넣어주겠다.
+		// 2 --------------------------------------------------------------------
+		// var var2 = document.getElementById("val2").innerText;
+		var val2 = document.getElementById("val2").innerText;
+		// alert(typeof(val2)); // ==> string
+		
+		val2 = parseInt(val2); // string 타입인 val2를 정수형으로 형변환 시킨다.
+		// alert(typeof(val2)); // ==> number
+		
+		document.getElementById("casting2").innerHTML = val2;
+		// 형변환 된 후 데이터 값을 보여준다. parseInt(1234) => 1234
+		
+		document.getElementById("typeval2").innerHTML = typeof(val2);
+		// document.getElementById("typeval2") 내용에 typeof(val2) 값을 넣어주겠다.
+		
+		// 3 --------------------------------------------------------------------
+		var val3 = document.getElementById("val3").innerText;
+		val3 = parseInt(val3);
+		
+		document.getElementById("casting3").innerHTML = val3;
+		
+		document.getElementById("typeval3").innerHTML = typeof(val3);
+		
+		// alert(typeof(val3));  // number // NaN 입력되어진 데이터가 숫자가 아닙니다. 라는 의미이다.
+		// alert(val3); // => 1234
+		
+		// 4 --------------------------------------------------------------------
+		var val4 = document.getElementById("val4").innerText;
+		val4 = parseFloat(val4);
+		
+		document.getElementById("casting4").innerHTML = val4;
+		
+		document.getElementById("typeval4").innerHTML = typeof(val4);
+		
+		// 5 --------------------------------------------------------------------
+		var val5 = document.getElementById("val5").innerText;
+		val5 = parseFloat(val5);
+		
+		document.getElementById("casting5").innerHTML = val5;
+		
+		document.getElementById("typeval5").innerHTML = typeof(val5);
+		
+		// 6 --------------------------------------------------------------------
+		var val6 = document.getElementById("val6").innerText;
+		val6 = parseFloat(val6);
+		
+		document.getElementById("casting6").innerHTML = val6;
+		
+		document.getElementById("typeval6").innerHTML = typeof(val6);
+		
+		// 7 --------------------------------------------------------------------
+		var val7 = document.getElementById("val7").innerText;
+		document.getElementById("typeval7").innerHTML = typeof(val7);
+		
+		// 8 --------------------------------------------------------------------
+		// 두 숫자 비교하기
+		var bool = false; /* boolean 함수 만들기 */
+		
+		var val8 = document.getElementById("val8").innerText;
+		var val9 = document.getElementById("val9").innerText;
+		
+		if(val8  == val9) {
+			bool = true;
+		}
+		
+		document.getElementById("typeval8").innerHTML = bool +" , "+typeof(bool);
+		
+		// 9 --------------------------------------------------------------------
+		// 두 문자 비교하기 (안녕, 행복)
+		var bool = false; /* boolean 함수 만들기 */
+		
+		var val10 = document.getElementById("val10").innerText;
+		var val11 = document.getElementById("val11").innerText;
+		
+		if(val10  == val11) {
+			bool = true;
+		}
+		
+		document.getElementById("typeval9").innerHTML = bool +" , "+typeof(bool);
+		
+		// 12 --------------------------------------------------------------------
+		var val12 = document.getElementById("val12").innerText;
+		document.getElementById("typeval12").innerHTML = typeof(val12);
+		
+		
+		// 13 --------------------------------------------------------------------
+		var val13;
+		/* undefined / val13 변수에 값을 주지 않았을 때 */
+		document.getElementById("typeval13").innerHTML = typeof(val13);
+				
+		// person  --------------------------------------------------------------------
+		var person = {userid:"leess"
+					, pwd:'qwer1234'
+					, name:'이순신'
+					, age:25};
+		
+		
+		// --------------------------------------------------------------------
+		
+		// --------------------------------------------------------------------
+		
+	} // end of window.onload = function()-------------------------------
+
+</script>
+
+
+</head>
+<body>
+
+<div id="container">
+	<table>
+		<tr>
+			<th>데이터 값</th>
+			<th>형변환 후 데이터 값</th>
+			<th>데이터타입</th>
+		</tr>
+		
+		<tr>
+			<td id="val1">1234</td>
+			<td id="casting1"></td>
+			<td id="typeval1"></td>
+		</tr>
+		
+		<tr>
+			<td id="val2">1234</td>
+			<td>
+				<span>parseInt(1234) => </span>
+				<span id="casting2"></span>
+			</td>
+			<td id="typeval2"></td>
+		</tr>
+		
+		<tr>
+			<td id="val3">1234.567</td>
+			<td>
+				<span>parseInt(1234.567) => </span>
+				<span id="casting3"></span>
+			</td>
+			<td id="typeval3"></td>
+		</tr>
+		
+		<tr>
+			<td id="val4">1234.567</td>
+			<td>
+				<span>parseFloat(1234.567) => </span>
+				<span id="casting4"></span>
+			</td>
+			<td id="typeval4"></td>
+		</tr>
+		
+		<tr>
+			<td id="val5">1234</td>
+			<td>
+				<span>Number(1234) => </span>
+				<span id="casting5"></span>
+			</td>
+			<td id="typeval5"></td>
+		</tr>
+		
+		<tr>
+			<td id="val6">1234.567</td>
+			<td>
+				<span>Number(1234.567) => </span>
+				<span id="casting6"></span>
+			</td>
+			<td id="typeval6"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" id="val7">안녕하세요</td>
+			<td id="typeval7"></td>
+		</tr>
+					
+		<tr>
+			<td id="val8">30</td>
+			<td id="val9">30</td>
+			<td id="typeval8"></td>
+		</tr>
+		
+		<tr>
+			<td id="val10">안녕</td>
+			<td id="val11">행복</td>
+			<td id="typeval9"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" id="val12"></td>
+			<td id="typeval12"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" id="val13"></td>
+			<td id="typeval13"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">아이디 : <span id="userid"></span></td>
+			<td rowspan="4" id="typeval14"></td>
+		</tr>
+		<tr>
+			<td colspan="2">암호 : <span id="pwd"></span></td>
+		</tr>
+		<tr>
+			<td colspan="2">성명 : <span id="name"></span></td>
+		</tr>
+		<tr>
+			<td colspan="2">나이 : <span id="age"></span></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">func_plus</td>
+			<td id="typeval15"></td>
+		</tr>
+	</table>
+
+
+</div>
+
+</body>
+</html>
