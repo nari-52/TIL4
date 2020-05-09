@@ -29,7 +29,7 @@
 	}
 	
 	span#sum, span#no3, span#su3 {
-		olor: red;
+		color: red;
 	}
 
 </style>
@@ -145,10 +145,30 @@
 					, pwd:'qwer1234'
 					, name:'이순신'
 					, age:25};
+		// {} 자바스크립트에서 말하는 객체를 의미한다.
+		// {키:값, 키:값 ...} 형태로 나타내어 준다.
 		
+		document.getElementById("userid").innerHTML = person.userid +" , "+typeof(person.userid);
+		document.getElementById("pwd").innerHTML = person.pwd +" , "+typeof(person.pwd);
+		document.getElementById("name").innerHTML = person.name +" , "+typeof(person.name);
+		document.getElementById("age").innerHTML = person.age +" , "+typeof(person.age);
+		
+		document.getElementById("typeval14").innerHTML = typeof(person);
+		// ==> object
 		
 		// --------------------------------------------------------------------
-
+		
+		document.getElementById("typeval15").innerHTML = typeof(func_plus);
+		
+		// --------------------------------------------------------------------
+		
+		var num1 = document.getElementById("num1").value;
+		var num2 = document.getElementById("num2").value;
+		
+		num1 = Number(num1);
+		num2 = Number(num2);
+		
+		document.getElementById("sum").innerHTML =  num1 + num2;
 		
 	} // end of window.onload = function()-------------------------------
 
@@ -263,7 +283,14 @@
 			<td id="typeval15"></td>
 		</tr>
 	</table>
-
+	
+	<!-- --------------------------------------------------------------------- -->
+	
+	<div id="div2">
+		<input id="num1" type="text" size="5" value="10" /> + <input id="num2" type="text" size="5" value="20"/> = <span id="sum"></span>
+	
+	
+	</div>
 
 </div>
 
