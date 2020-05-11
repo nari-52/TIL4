@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문자열을 분리해서 배열로 만들기</title>
+
+<style type="text/css">
+
+	div#container {
+		/* border: solid 1px gray; */
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%;
+	}
+	
+	input[type=text] {
+		width: 200px;
+		height: 25px;
+		font-size: 12pt;
+	}
+	
+	input[type=button] {
+		width: 100px;
+		height: 30ox;
+		font-size: 12pt;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function(event) {
+		
+		var btn1 = document.getElementById("btn1");
+		
+		btn1.addEventListener('click', function(event){
+			
+			var arrArray = new Array();
+			var sString = document.getElementById("text1").value;
+			
+			/* 문자열의 길이를 구해보자 */
+			console.log("sString 문자열의 길이 : " + sString.length);
+			// sString 문자열의 길이 :15  // F12 Console
+			
+			console.log( sString.substr(1, 3) );
+			// substr(0, 3)은 sString의 0번 인덱스 부터 3글자만 뽑아온다.
+			// bcd
+			
+			console.log( sString.substring(1, 3) );
+			// substring(1, 3) sString의 1번 인덱스 부터 3번 인텍스 앞까지 뽑아온다.
+			// bc
+			
+			var nSize = 3;
+			
+			for(var i=0; i<sString.length; i+=nSize ) {
+				// i = 0;
+				// i = 3;
+				// i = 6;
+				// i = 9;
+				// i = 12;
+				
+				arrArray.push( sString.substr(i, nSize) ); // 배열 arrArray에 값을 넣어주는 것이다.
+				// sString.substr(0, 3); ==> abc
+				// sString.substr(3, 3); ==> def
+				// sString.substr(6, 3); ==> ghi
+				// sString.substr(9, 3); ==> 123
+				// sString.substr(12, 3); ==> 456
+
+			} // end of for ---------------------------------
+			
+			console.log("배열 arrArray 의 크기 : " + arrArray.length);
+			
+			var sResult = "";
+			for(var i=0; i<arrArray.length; i++) {
+				
+				var sComma = (i < arrArray.length-1 )?", ":""; /* 삼항연산자 */
+				sResult += arrArray[i] + sComma;
+			} // end of for----------------------------------
+			
+			document.getElementById("text2").value = sResult;
+				
+		}); // end of btn1.addEventListener('click', function(event)-----
+				
+				
+		var btn2 = document.getElementById("btn2");
+		
+		btn2.addEventListener('click', function(event) {
+			document.getElementById('text2').value = "";
+
+		}); // end of btn2.addEventListener('click', function(event)--------
+		
+		
+	}; // end of window.onload = function(event)---------------------
+
+</script>
+
+
+</head>
+<body>
+
+	<div id="container">
+		<table>
+			<tr>
+				<td><input type="text" id="text1" value="abcdefghi123456" /></td>
+				<td><input type="button" id="btn1" value="확인" /></td>
+			</tr>
+			
+			<tr>
+				<td><input type="text" id="text2" /></td>
+				<td><input type="button" id="btn2" value="다시"/></td>
+			</tr>
+		</table>
+	</div>
+
+
+</body>
+</html>
