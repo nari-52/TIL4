@@ -6,6 +6,89 @@
 
 <style type="text/css">
 
+	body {
+		font-family: Arial, "MS Trebuchet", sans-serif;
+		font-size: 16pt;
+	}
+	
+	* {margin: 0;}
+	
+	div#container {
+		width: 90%;
+		margin: 0 auto;
+		padding: 50px 0;
+		text-align: center;
+	}
+	
+	fieldset {
+          text-align: left;
+          background: #ffffe6;}
+	
+	legend {font-size: 24pt;}
+	
+	fieldset>ul {
+		list-style: none;
+		padding: 0;
+	}
+	
+	fieldset>ul>li {
+		line-height: 40px;
+	}
+	
+	fieldset>ul>li>label:first-child {
+		display: inline-block;
+		width: 10%;
+		/* border: solid 1px green; */
+	}
+	
+	fieldset>ul>li>input {
+		width: 20%;
+		height: 20px;
+		/* border: solid 1px blue; */
+	}
+	
+	/* 약관동의 체크박스 수정하기 */
+	.agree {
+
+		border: solid 1px blue;
+	}
+	
+	div.schoolInterest {
+		display: inline-block;
+		width: 50%;
+		/* border: solid 1px gray; */
+	}
+	
+	div.schoolInterest>label {
+		margin-right: 2%;
+	}
+	
+	div.schoolInterest>input {
+		margin-right: 5%;
+	}
+	
+    fieldset>ul>li:last-child>input {
+    	width: 10%;
+    	height: 50px;
+    	margin: 2% 4% 0 0;
+    	font-size: 16pt;
+    	font-weight: bold;
+    	background: #006600;
+    	color: #eee;
+    	border: none;
+    }
+    
+    fieldset>ul>li:last-child>input:hover {
+    	opacity: 0.8;
+    	cursor: pointer;
+    	color: #ffffcc;
+    }
+	
+	span.error {
+		color: red;
+		font-size: 10pt;
+	}
+
 
 </style>
 
@@ -13,14 +96,186 @@
 <script type="text/javascript" src="/JavaScriptStudy/jqueryStudy/util/myutil.js"></script>
 <script type="text/javascript">
 
+	$(document).ready(function(){ 
+		
+		$("span.error").css('display', 'none'); // 에러 안내 문구 감추기
+		
+		/* $("input#userid").bind("blur", function(){ 
+			// 선택자에서 포커스를 잃어버리는 순간 발생되어지는 이벤트
+			alert("포커스 이탈!")
+		}); */
 
-
+		// 1. 아이디 확인 ------------------------------------------------------------
+		$("input#userid").blur(function(){   
+			// 아이디는 5글자 이상 10글자 이하로 첫글자는 영문대문자이고 나머지는 영문자, 숫자 혼합되어져야 한다.
+			// === 정규표현식 객체 만들기 ===
+			var regExp = /^[A-Z][A-Za-z0-9]{4,9}$/;
+			
+			// 생성된 정규표현식 객체 속에 데이터를 넣어서 검사하기
+			var bool = regExp.test($(this).val()); // 리턴타입 boolean
+			
+			if(!bool) {
+				$("span.userid_error").css('display',''); // 기본값을 보여라
+				
+				$(":input").prop("disabled", true);
+				// 모든 인풋 태그 이용 불가능
+				
+				$(this).prop("disabled", false);
+				// 현재 인풋 태그 이용 가능
+				$(this).val("");
+				$(this).focus();
+			}
+			else {
+				// 아이디를 올바르게 입력한 경우
+				$("span.userid_error").css('display','none');
+				$(":input").prop("disabled", false);
+				$("input#passwd").focus();
+			}
+			
+		}); // $("input#userid").blur() -----------------------------------
+		
+		// 2. 비밀번호 확인 ------------------------------------------------------------
+		$("input#passwd").blur(function(){   
+			// === 정규표현식 객체 만들기 ===
+			var regExp_pw = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).*$/g;
+			
+			// 생성된 정규표현식 객체 속에 데이터를 넣어서 검사하기
+			var bool = regExp_pw.test($(this).val()); // 리턴타입 boolean
+			
+			if(!bool) {
+				$("span.passwd_error").css('display',''); // 기본값을 보여라
+				
+				$(":input").prop("disabled", true);				
+				$(this).prop("disabled", false);
+				$(this).val("");
+				$(this).focus();
+			}
+			else {
+				// 비밀번호를 올바르게 입력한 경우
+				$("span.passwd_error").css('display','none');
+				$(":input").prop("disabled", false);
+				$("input#passwdCheck").focus();
+			}
+			
+		}); // $("input#passwd").blur() -----------------------------------
+		
+		// 2. 비밀번호 일치여부 확인 ------------------------------------------------------------
+		$("input#passwdCheck").blur(function(){   
+			
+			if($(this).val() != $("input#passwd").val() ) {
+				$("span.passwdCheck_error").html("암호와 암호확인값이 서로 일치하지 않습니다.").css('display',''); 
+				
+				$("input#passwd").val("");
+				$(this).val("");
+				
+				$(":input").prop("disabled", true);				
+				
+				$("input#passwd").prop("disabled", false);
+				$(this).prop("disabled", false);
+				
+				$("input#passwd").focus();
+			}
+			else {
+				// 비밀번호를 올바르게 입력한 경우
+				$("span.passwdCheck_error").empty();
+				$(":input").prop("disabled", false);
+				$("input#name").focus();
+			}
+			
+		}); // $("input#passwdCheck").blur() -----------------------------------
+		
+	
+	}); // end of $(document).ready(function()
 
 
 </script>
 
 </head>
 <body>
+
+<div id="dontainer">
+	<form name="registerFrm">
+		<fieldset>
+			<legend>회원가입</legend>
+			<ul>
+				<li>
+					<label for="userid">아이디</label>
+					<input type="text" name="userid" id="userid" value="" maxlength="20" required autofocus autocomplete="off"/>        
+					<span class="error userid_error">아이디는 5글자 이상 10글자 이하로 첫글자는 영문대문자이고 나머지는 영문자,숫자로 혼합되어져야 합니다.</span>
+				</li>
+				<li>
+					<label for="passwd">암호</label>
+					<input type="password" name="passwd" id="passwd" value="" maxlength="20" required />
+					<span class="error passwd_error">암호는 8글자 이상 15글자 이하의 영문자,숫자,특수기호가 혼합된 것이어야 합니다.</span>
+				</li>
+				<li>
+					<label for="passwdCheck">암호확인</label>
+					<input type="password" id="passwdCheck" value="" required />
+				    <span class="error passwdCheck_error"></span>
+				</li>
+				<li>
+					<label for="name">성명</label>
+					<input type="text" name="name" id="name" value="" maxlength="20" required />
+				    <span class="error name_error"></span>
+				</li>
+				<li>
+					<label for="email">e메일</label>
+					<input type="email" name="email" id="email" value="" maxlength="40" placeholder="예 abc@gmail.com" required />
+				    <span class="error email_error"></span>
+				</li>
+				<li>
+					<label for="tel">자택전화번호</label>
+					<input type="tel"  name="tel" id="tel" value="" maxlength="13" placeholder="-포함하여 입력"/>
+					<span class="error tel_error"></span>
+				</li>
+				<li>
+					<label>주민번호</label>
+					<input type="text" name="jubun1" id="jubun1" size="10" maxlength="6" required autocomplete="off" />&nbsp;-
+					<input type="password" name="jubun2" id="jubun2" size="10" maxlength="7" required />
+					<span class="error jubun_error"></span>   
+				</li>
+				<li>
+					<label>성별</label>
+					<label>남<input type="radio" name="gender" value="M" /></label>&nbsp;
+					<label>여<input type="radio" name="gender" value="F" /></label>
+				</li>
+				<li>
+					<label>학력</label>
+					<div class="schoolInterest">
+						<label for="school1">고졸</label><input type="radio" name="school" id="school1" value="고졸" />&nbsp;
+				        <label for="school2">초대졸</label><input type="radio" name="school" id="school2" value="초대졸" />&nbsp;
+				        <label for="school3">대졸</label><input type="radio" name="school" id="school3" value="대졸" />&nbsp;
+				        <label for="school4">대학원졸</label><input type="radio" name="school" id="school4" value="대학원졸" />&nbsp; 
+				    </div> 
+				</li>
+				<li>
+					<label>관심분야</label>
+					<div class="schoolInterest">
+						<label for="interest1">Java</label><input type="checkbox" name="interest" id="interest1" value="Java" />&nbsp;
+				        <label for="interest2">Oracle</label><input type="checkbox" name="interest" id="interest2" value="Oracle" />&nbsp;
+				        <label for="interest3">HTML</label><input type="checkbox" name="interest" id="interest3" value="HTML" />&nbsp;
+				        <label for="interest4">JavaScript</label><input type="checkbox" name="interest" id="interest4" value="JavaScript" />&nbsp;
+					</div> 
+				</li>
+				
+				<li>
+					<label for="agree">약관 동의</label>
+					<label for="agree">동의</label><input type="checkbox" name="agree" id="agree" class="agree" />
+				</li>
+				
+				<li>
+					<iframe src="iframeAgree/agree.html" width="85%" height="150px" style="border: solid 1px navy; margin: 20px 0px"></iframe>
+				</li>
+				
+				<li>
+					<input type="button" id="btnRegister" value="회원가입" />
+					<input type="reset" value="취소" />
+				</li>
+			</ul>
+		</fieldset>
+	
+	</form>
+</div>
 
 </body>
 </html>
