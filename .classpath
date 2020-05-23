@@ -8,5 +8,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/selenium/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/selenium/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="C:/selenium/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/selenium/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/selenium/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="C:/selenium/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/selenium/okio-1.14.0.jar"/>
 	<classpathentry kind="output" path="build/WEB-INF/classes"/>
 </classpath>
