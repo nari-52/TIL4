@@ -8,10 +8,15 @@
 	body {
 		min-width: 320px;
 	}
+	
+	div#container {
+		width: 60%;
+		margin: 0 auto;
+	}
 
 	div#sub_header {
 		height: 98px;
-		/* background-color: yellow; */
+		padding-top: 30px;
 	}
 	
 	h2>img {
@@ -24,9 +29,46 @@
 	}
 	
 	div#search_bar {
-		height: 150px;
+		width: 100%;
+		height: 76px;
 		background-color: #f4f4f2;
+		border-radius: 3px;
+    	margin-bottom: 40px;
 	}
+	
+	div#search_bar_right {
+		float: right;
+		margin-right: 5%;
+	}
+
+	
+	input#search_input {
+		margin-top: 20px;
+		display: inline;
+		width: 321px;
+	    height: 36px;
+	    line-height: 36px;
+	    border: 1px solid #ddd;
+	    border-radius: 3px;
+	    text-indent: 10px;
+	    color: #666;
+	}
+	
+	/* 버튼 타입이라 밑에 그림자 지는게 맘에 안듬 */
+	input#search_button {
+		display: inline;
+	    width: 54px;
+	    height: 38px;
+	    line-height: 38px;
+	    background: #777;
+	    border-radius: 3px;
+	    font-size: 14px;
+	    font-weight: bold;
+	    color: #fff;
+	    text-align: center;
+	    padding: 0;
+	}
+		
 	
 	/* ---------------------------- 헤더 끝 -------------------------- */
 	
@@ -55,6 +97,8 @@
 	    line-height: 1.8;
 	
 	}
+	
+	
 
 	
 	
@@ -72,7 +116,12 @@
 			</div>
 			<div id="search_header">
 				<div id="search_bar">
-					검색바
+					<div id="search_bar_right">
+
+						<input id="search_input" type="text" placeholder="검색어를 입력해 주세요."/>
+						<!-- <a href="http://localhost:9090/JavaScriptStudy/00_semi/index.html" id="search_atag">검색</a> -->
+						<input id="search_button" type="button" value="검색" />
+					</div>
 				</div>
 			</div>
 		</header>
