@@ -11,13 +11,13 @@
 	}
 
 	div#container {
-		border: solid 1px yellow;
+		/* border: solid 1px yellow; */
 		width: 100%;
 		margin: 0 auto;
 	}
 	
 	header {
-		border: solid 1px red;
+		/* border: solid 1px red; */
 		height: 120px;
 		background-color: #f6f5ef;
 		border-bottom: 1px solid #e5e5e5
@@ -30,7 +30,7 @@
 		margin: 0 auto;
 	}
 	
-	img {
+	img#logo {
 		margin-top: 7%;
 		margin-left: 10%
 	}
@@ -67,7 +67,7 @@
 	/* 신제품 */
 	
 	div#section_new_product {
-		border: solid 1px skyblue;
+		/* border: solid 1px skyblue; */
 		height: 646px;
 		background-color: #f4e7c7;
 	}
@@ -75,26 +75,39 @@
 	/* 공지사항 */
 	
 	div#section_notice {
-		border: solid 1px green;
+		/* border: solid 1px green; */
 		height: 80px;
 		background-color: black;
 		color: white;
 	}
 	
+	/* 리워드 */
+	
 	div#section_reward {
-		border: solid 1px orange;
+		/* border: solid 1px orange; */
 		height: 335px;
-		background-color: gray;
+		background-color: ;
+		padding: 0;
+		
 	}
 	
+/* 	.img {
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+	 */
+	
+	/* 추천메뉴 */
+	
 	div#section_recommended_menu {
-		border: solid 1px purple;
+		/* border: solid 1px purple; */
 		height: 573px;
 		background-color: skyblue;
 	}
 	
 	div#section_map {
-		border: solid 1px red;
+		/* border: solid 1px red; */
 		height: 710px;
 		background-color: #ffe6ff;
 	}
@@ -123,7 +136,7 @@
 		<header>
 			<div id="header_1">
 				<a href="index.html" >
-					<img src="images/starbucslogo.png" width="75px" height="75px"/>
+					<img id="logo" src="images/starbucslogo.png" width="75px" height="75px"/>
 				</a>
 			</div>
 			<div id="header_2">
@@ -153,15 +166,21 @@
 		<section>
 			<div id="section_new_product">
 			신제품
+				
 			</div>
 			
 			<div id="section_notice">
-			공지사항
+			공지사항 
+			<span>SSG PAY 시스템 점검 안내</span>
+			<span>플러스 로고</span>
 			</div>
 			
+			<section>
 			<div id="section_reward">
-			스타벅스 리워즈
+			
+				<img class="img" src="images/my_starbucks_rewards.jpg" width="50%" height="335px"/>
 			</div>
+			</section>
 			
 			<div id="section_recommended_menu">
 			추천메뉴
@@ -177,7 +196,7 @@
 		
 		<footer>
 			<div>광고</div>
-			<br/><br/><br/><br/><br/>
+			<br/><br/><br/><br/><br/><br/><br/>
 			<div id="footer_botton">
 				<ul>
 					<li>사업자등록번호 : 201-81-21515</li>
@@ -185,6 +204,7 @@
 					<li>TEL : 1522-3232</li>
 					<li>개인정보 책임자 : 장석현 기재</li>
 				</ul>
+				<br/><br/>
 				<span>&copy; 2020 Starbucks Coffee Company. All Rights Reserved. </span>
 			</div>
 		</footer>
