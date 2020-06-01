@@ -79,6 +79,21 @@
 		height: 80px;
 		background-color: black;
 		color: white;
+		text-align: center;
+		vertical-align: middle;
+	}
+	
+	table#section_notice_table {
+		margin: 0 auto;
+		align-content: center;
+		text-align: center;
+		vertical-align: middle;
+		
+	}
+	
+	table#section_notice_table > tr > td {
+		vertical-align: middle;
+		padding: 20px;
 	}
 	
 	/* 리워드 */
@@ -86,8 +101,9 @@
 	div#section_reward {
 		/* border: solid 1px orange; */
 		height: 335px;
-		background-color: ;
+		background-color: black ;
 		padding: 0;
+		color : white;
 		
 	}
 	
@@ -170,15 +186,19 @@
 			</div>
 			
 			<div id="section_notice">
-			공지사항 
-			<span>SSG PAY 시스템 점검 안내</span>
-			<span>플러스 로고</span>
+				<table id="section_notice_table">
+					<tr>
+						<td>공지사항 </td>
+						<td><a>SSG PAY 시스템 점검 안내</a></td>
+						<td><a href="notice_list.html">플러스 로고</a></td>
+					</tr>
+				</table>
 			</div>
 			
 			<section>
 			<div id="section_reward">
-			
-				<img class="img" src="images/my_starbucks_rewards.jpg" width="50%" height="335px"/>
+				<img class="img" src="images/my_starbucks_rewards.jpg" width="45%" height="335px"/>
+				<img class="img" src="images/reward_texbg.jpg" width="54.7%" height="335px" />
 			</div>
 			</section>
 			
